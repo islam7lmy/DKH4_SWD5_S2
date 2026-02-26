@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Threading.Channels;
 
 namespace Demo01
 {
@@ -312,6 +313,245 @@ namespace Demo01
             //string result = string.Format("Equation : {0} + {1} = {2}", x, y, (x + y)); // string format method
             //string result = $"Equation : {x} + {y} = {x + y}"; // string interpolation
             #endregion
+
+            #region Conditional Statment
+            #region EX01
+            #region if
+            //Console.WriteLine("insert number of month in first Qurter of year: ");
+            //int month;
+            //if (int.TryParse(Console.ReadLine(), out month))
+            //{
+            //    //if (month == 1)
+            //    //    Console.WriteLine("January");
+            //    //if (month == 2)
+            //    //    Console.WriteLine("February");
+            //    //if (month == 3)
+            //    //    Console.WriteLine("March");
+
+            //    if (month == 1)
+            //        Console.WriteLine("January");
+            //    else if (month == 2)
+            //        Console.WriteLine("February");
+            //    else if (month == 3)
+            //        Console.WriteLine("March");
+            //    else
+            //        Console.WriteLine("number is out of range");
+            //}
+            //else
+            //    Console.WriteLine("invalid input for month");
+
+            #endregion
+            #region switch
+            //Console.WriteLine("insert number of month in first Qurter of year: ");
+            //int month;
+            //int.TryParse(Console.ReadLine(), out month);
+            ///// jump table 
+            //switch (month)
+            //{
+            //    case 1: Console.WriteLine("January"); break;
+            //    case 2: Console.WriteLine("February"); break;
+            //    case 3: Console.WriteLine("March"); break;
+            //    case 0: Console.WriteLine("invalid input for month"); break;
+            //    default: Console.WriteLine("number is out of range"); break;
+            //}
+
+            #endregion
+
+            #endregion
+
+            #region EX02
+            #region if
+            //int salary;
+            //if(int.TryParse(Console.ReadLine(), out salary))
+            //{
+            //    if (salary == 3000)
+            //    {
+            //        Console.WriteLine("option 3");
+            //        Console.WriteLine("option 2");
+            //        Console.WriteLine("option 1");
+            //    }
+            //    else if (salary == 2000)
+            //    {
+            //        Console.WriteLine("option 2");
+            //        Console.WriteLine("option 1");
+            //    }
+            //    else if (salary == 1000)
+            //    {
+            //        Console.WriteLine("option 1");
+            //    }
+            //    else
+            //        Console.WriteLine("can not do any option");
+            //}
+            //else Console.WriteLine("invalid input");
+            #endregion
+            #region switch
+            //int salary;
+            //if (int.TryParse(Console.ReadLine(), out salary))
+            //{
+            //    //switch (salary)
+            //    //{
+            //    //    case 3000:
+            //    //        Console.WriteLine("option 3");
+            //    //        Console.WriteLine("option 2");
+            //    //        Console.WriteLine("option 1"); 
+            //    //        break;
+            //    //    case 2000:
+            //    //        Console.WriteLine("option 2");
+            //    //        Console.WriteLine("option 1");
+            //    //        break;
+            //    //    case 1000:
+            //    //        Console.WriteLine("option 1"); 
+            //    //        break;
+            //    //    default: 
+            //    //        Console.WriteLine("can not do any option"); 
+            //    //        break;
+            //    //}
+
+            //    switch (salary)
+            //    {
+            //        case 3000:
+            //            Console.WriteLine("option 3");
+            //            //Console.WriteLine("option 2");
+            //            //Console.WriteLine("option 1");
+            //            //break;
+            //            goto case 2000;
+            //        case 2000:
+            //            Console.WriteLine("option 2");
+            //            //Console.WriteLine("option 1");
+            //            //break;
+            //            goto case 1000;
+            //        case 1000:
+            //            Console.WriteLine("option 1");
+            //            break;
+            //        default:
+            //            Console.WriteLine("can not do any option");
+            //            break;
+            //    }
+            //}
+            //else Console.WriteLine("invalid input");
+
+            #endregion
+            #endregion
+
+            #region Calculater
+            // take number then opration then number and show result
+            //calculator do (+ - * / %)
+            //write program to do that and make it protictive
+
+            //int num1, num2;
+            //char opr;
+            //int num1, num2;
+            //double result;
+            //char op;
+            //Console.WriteLine("enter first number");
+            //if (!int.TryParse(Console.ReadLine(), out num1))
+            //{
+            //    Console.WriteLine("invalid format for first number");
+            //    return;
+            //}
+
+            //Console.WriteLine("enter operation (+ - * / %)");
+            //if (!(char.TryParse(Console.ReadLine(), out op)
+            //    &&
+            //    (op == '+' || op == '-' || op == '*'
+            //    || op == '/' || op == '%')))
+            //{
+            //    Console.WriteLine("invalid format for operation");
+            //    return;
+            //}
+
+            //Console.WriteLine("enter last number");
+            //if (!int.TryParse(Console.ReadLine(), out num2))
+            //{
+            //    Console.WriteLine("invalid format for last number");
+            //    return;
+            //}
+
+            //switch (op)
+            //{
+            //    case '+':
+            //        result = num1 + num2;
+            //        break;
+            //    case '-':
+            //        result = num1 - num2;
+            //        break;
+            //    case '*':
+            //        result = num1 * num2;
+            //        break;
+            //    case '/':
+            //        if (num2 != 0)
+            //            result = (double) num1 / num2;
+            //        else
+            //        {
+            //            Console.WriteLine("can not divide by zero");
+            //            return;
+            //        }
+            //        break;
+            //    case '%':
+            //        if (num2 != 0)
+            //            result = num1 % num2;
+            //        else
+            //        {
+            //            Console.WriteLine("can not divide by zero");
+            //            return;
+            //        }
+            //        break;
+            //    default: return;
+            //}
+            //Console.WriteLine($"{num1} {op} {num2} = {result}");
+
+            #endregion
+            #endregion
+
+            #region Loop Statment
+            // print numbers from 1 to 10
+            //Console.WriteLine("1");
+            //Console.WriteLine("2");
+            //Console.WriteLine("3");
+            //Console.WriteLine("4");
+            //Console.WriteLine("5");
+            //Console.WriteLine("6");
+            //Console.WriteLine("7");
+            //Console.WriteLine("8");
+            //Console.WriteLine("9");
+            //Console.WriteLine("10");
+
+            #region for
+            /// for (initilization; condtion; increment | decrement)
+            /// body
+            /// 
+            /// 1. initilization
+            /// 2. check condtion
+            /// 3. if condtion true => do body code
+            /// 4. increment | decrement
+            /// 5. check condtion
+            /// 6. if condtion true => do body code
+            /// 7. increment | decrement
+            #region MyRegion
+
+            #endregion
+            //for (int i = 1; i <= 10; ++i) //i++ // i+=1 // i = i+1
+            //    Console.WriteLine(i);
+
+            //int i = 1; //initilization
+            //for (; ; )
+            //{
+            //    if (i <= 10) //condtion
+            //    {
+            //        if(i % 2 == 0)
+            //        {
+            //            i++;
+            //            continue; //skip the rest of the loop body and go to the next iteration
+            //        }
+            //        Console.WriteLine(i); //body
+            //        i++; //increment
+            //    }
+            //    else
+            //        break; // exit the loop
+            //}
+            #endregion
+            #endregion
+
         }
     }
 }
