@@ -439,8 +439,6 @@ namespace Demo01
             //write program to do that and make it protictive
 
             //int num1, num2;
-            //char opr;
-            //int num1, num2;
             //double result;
             //char op;
             //Console.WriteLine("enter first number");
@@ -480,7 +478,7 @@ namespace Demo01
             //        break;
             //    case '/':
             //        if (num2 != 0)
-            //            result = (double) num1 / num2;
+            //            result = (double)num1 / num2;
             //        else
             //        {
             //            Console.WriteLine("can not divide by zero");
@@ -527,9 +525,7 @@ namespace Demo01
             /// 5. check condtion
             /// 6. if condtion true => do body code
             /// 7. increment | decrement
-            #region MyRegion
 
-            #endregion
             //for (int i = 1; i <= 10; ++i) //i++ // i+=1 // i = i+1
             //    Console.WriteLine(i);
 
@@ -550,8 +546,228 @@ namespace Demo01
             //        break; // exit the loop
             //}
             #endregion
+
+            #region while
+            ///while(reader.Read())
+            ///{
+            ///   do some code to read data from reader
+            ///}
+
+            //Console.WriteLine("insert 0 if you want to print");
+            //string input = Console.ReadLine();
+            //while (input == "0")
+            //{
+            //    Console.WriteLine("hello");
+            //    Console.WriteLine("insert 0 if you want to print or press any key to exit");
+            //    input = Console.ReadLine();
+            //}
+
+            //int num1, num2;
+            //char op;
+            //double result;
+            //Console.WriteLine("enter first number");
+            //while (!int.TryParse(Console.ReadLine(), out num1))
+            //{
+            //    Console.WriteLine("wrong format, enter first number");
+            //}
+
+            //Console.WriteLine("enter operation (+ - * / %)");
+            //while (!(char.TryParse(Console.ReadLine(), out op)
+            //    && (op == '+' || op == '-' || op == '*' || op == '/' || op == '%')))
+            //{
+            //    Console.WriteLine("wrong format, enter operation (+ - * / %)");
+            //}
+
+            //Console.WriteLine("enter last number");
+            //while (!int.TryParse(Console.ReadLine(), out num2) || ((op == '/' || op == '%') && num2 == 0))
+            //{
+            //    Console.WriteLine($"wrong format, enter last number {(op == '/' || op == '%' ? "and make sure not be zero" : "")}");
+            //}
+
+            //switch (op)
+            //{
+            //    case '+':
+            //        result = num1 + num2;
+            //        break;
+            //    case '-':
+            //        result = num1 - num2;
+            //        break;
+            //    case '*':
+            //        result = num1 * num2;
+            //        break;
+            //    case '/':
+            //        result = (double)num1 / num2;
+            //        break;
+            //    case '%':
+            //        result = num1 % num2;
+            //        break;
+            //    default: return;
+            //}
+            //Console.WriteLine($"{num1} {op} {num2} = {result}");
             #endregion
 
+            #region do while
+            //for (int i = 11; i <= 10; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //int i = 11; 
+            //do
+            //{
+            //    Console.WriteLine(i);
+            //    i++;
+            //} while (i <= 10);
+
+            //int num1, num2;
+            //char op;
+            //double result;
+            //do
+            //{
+            //    Console.WriteLine("enter first number");
+            //    while (!int.TryParse(Console.ReadLine(), out num1))
+            //    {
+            //        Console.WriteLine("wrong format, enter first number");
+            //    }
+
+            //    Console.WriteLine("enter operation (+ - * / %)");
+            //    while (!(char.TryParse(Console.ReadLine(), out op)
+            //        && (op == '+' || op == '-' || op == '*' || op == '/' || op == '%')))
+            //    {
+            //        Console.WriteLine("wrong format, enter operation (+ - * / %)");
+            //    }
+
+            //    Console.WriteLine("enter last number");
+            //    while (!int.TryParse(Console.ReadLine(), out num2) || ((op == '/' || op == '%') && num2 == 0))
+            //    {
+            //        Console.WriteLine($"wrong format, enter last number {(op == '/' || op == '%' ? "and make sure not be zero" : "")}");
+            //    }
+
+            //    switch (op)
+            //    {
+            //        case '+':
+            //            result = num1 + num2;
+            //            break;
+            //        case '-':
+            //            result = num1 - num2;
+            //            break;
+            //        case '*':
+            //            result = num1 * num2;
+            //            break;
+            //        case '/':
+            //            result = (double)num1 / num2;
+            //            break;
+            //        case '%':
+            //            result = num1 % num2;
+            //            break;
+            //        default: return;
+            //    }
+            //    Console.WriteLine($"{num1} {op} {num2} = {result}");
+            //    Console.WriteLine("*************************************************************");
+            //    Console.WriteLine("if you want to do anthor operation enter 'y' or press any key to exit");
+            //} while (Console.ReadLine().ToUpper() == "Y");
+            #endregion
+
+            #region foreach [collections]
+            //string text = Console.ReadLine();
+
+            //for (int i = 0; i < text.Length; i++)
+            //    Console.WriteLine(text[i]);
+
+            ///// display
+            //foreach (char item in text)
+            //    Console.WriteLine(item);
+
+            //List<string> names = new List<string>()
+            //{
+            //    "ali",
+            //    "ahmed",
+            //    "sara"
+            //};
+
+            //for (int i = 0; i < names.Count; i++) // with collections to edit
+            //{
+            //    names[i] += "hello";
+            //}
+
+            //vs
+
+            //foreach (var item in names)
+            //{
+            //    item += "hello"; // not valid //for display only
+            //}
+            #endregion
+            #endregion
+
+            #region Block Scope
+            //for (int i = 0; i <= 10; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //Console.WriteLine(i); //out of scope
+
+            //while (!double.TryParse(Console.ReadLine(), out double x))
+            //{
+            //    double z = 0;
+            //    Console.WriteLine(x);
+            //}
+            ////x = 3; //out of scope
+            ////z = 3; //out of scope 
+
+            ////double y;
+            //if (!double.TryParse(Console.ReadLine(), out double y))
+            //{
+            //    int z = 0;
+            //    Console.WriteLine(y);
+            //}
+            //y = 3;
+            //z = 3;//out of scope
+
+            //int x = 0;
+            //{ int z = 0; x = 1; }
+            //{ int z = 0; x = 2; }
+            #endregion
+
+            #region Arrays
+            #region one D Array
+            //int[] numbers;
+            // Declare for Reference from Type "Array of Integrs"
+            // Refering to the default value of Reference Type = NULL
+            // CLR Will Allocate 4 Bytes for The Reference at STACK
+            // CLR Will Allocate Zero Bytes at HEAP 
+
+            //numbers = new int[5];
+            // CLR Allocate 20 Bytes at HEAP,
+            // Intiailized with the default value of int = 0
+            // make reference refer on first element in object of array
+
+            //int[] numbers1 = new int[5] { 1, 2, 3, 4, 5 };
+            //int[] numbers2 = new int[] { 1, 2, 3, 4, 5 };
+            //int[] numbers3 = { 1, 2, 3, 4, 5 };
+
+            //numbers[0] = 1;
+            // numbers[4] = 2; //size - 1
+            //numbers[5] = 3; //not valid //runtime error
+
+            //Console.WriteLine($"the size of array {numbers.Length}, the number of dimensions {numbers.Rank}");
+
+
+            //write a program with protictive code to read elemnts of array from user
+            //then print all elements
+            //int[] numbers = new int[5];
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    Console.WriteLine($"enter the { i + 1 } element of array");
+            //    while(!int.TryParse(Console.ReadLine(),out numbers[i]))
+            //        Console.WriteLine($"wrong format, enter the {i + 1} element of array");
+            //}
+
+            //Console.WriteLine("the arry element :");
+            //foreach(int item in numbers)
+            //    Console.WriteLine(item);
+            #endregion
+
+            #endregion
         }
     }
 }
