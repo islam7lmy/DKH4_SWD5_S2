@@ -766,6 +766,181 @@ namespace Demo01
             //foreach(int item in numbers)
             //    Console.WriteLine(item);
             #endregion
+            #region Two D Array [Rectangular]
+            //int[,] marks;
+            //marks = new int[3,5];  //[rows,column]
+
+            //Console.WriteLine($"the size of array {marks.Length}, the number of dimensions {marks.Rank}");
+            //Console.WriteLine($"row number {marks.GetLength(0)}, column number {marks.GetLength(1)}");
+
+            //marks[1, 2] = 1;
+
+            /////read elments of arry from user 
+            /////print elemnts of arry to user
+            /////write program to do that with protictive code and readable messages
+            //for (int i = 0; i < marks.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < marks.GetLength(1); j++)
+            //    {
+            //        Console.WriteLine($"enter array element marks[{i},{j}]");
+            //        while(!int.TryParse(Console.ReadLine(),out marks[i, j]))
+            //            Console.WriteLine($"wrong format, enter array element marks[{i},{j}]");
+            //    }
+            //}
+
+            //for (int x = 0; x < marks.Length; x++)
+            //{
+            //    int i = x / marks.GetLength(1); //current row 
+            //    int j = x % marks.GetLength(1); //current column 
+
+            //    Console.WriteLine($"enter array element marks[{i},{j}]");
+            //    while (!int.TryParse(Console.ReadLine(), out marks[i, j]))
+            //        Console.WriteLine($"wrong format, enter array element marks[{i},{j}]");
+            //}
+            #region ex : read diminssion
+            //int[,,,,] num = new int[3, 4, 5, 6, 6];
+            //int[] dim = new int[num.Rank];
+            //for (int i = 0; i < dim.Length; i++)
+            //{
+            //    dim[i] = num.GetLength(i);
+            //}
+
+            //foreach (var item in dim)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+            #endregion
+            #region [Jagged Array]
+            #region ex
+            //Point[] arr = new Point[5];
+            //arr[0] = new Point();
+            //arr[0].x = 1;
+            //arr[0].y = 2;
+
+            ////arr[1] = new Point();
+            //arr[1].x = 3; 
+            #endregion
+            //int[,][,] arr;
+            //arr = new int[3, 5][,];
+
+            //arr[0, 0] = new int[2, 4]; //st0
+            //arr[0, 1] = new int[1, 3]; //st1
+            //arr[0, 2] = new int[2, 1]; //st2
+
+
+            //Console.WriteLine($"the size of array {arr.Length}, the number of dimensions {arr.Rank}");
+            //Console.WriteLine($"row number {arr.GetLength(0)}, column number {arr.GetLength(1)}");
+            //Console.WriteLine($"the size of array {arr[0,0].Length}, the number of dimensions {arr[0, 0].Rank}");
+            //Console.WriteLine($"row number {arr[0, 0].GetLength(0)}, column number {arr[0, 0].GetLength(1)}");
+
+            //foreach (int[,] innerarr in arr) 
+            //{
+            //    Console.WriteLine($"the size of array {innerarr.Length}, the number of dimensions {innerarr.Rank}");
+            //    Console.WriteLine($"row number {innerarr.GetLength(0)}, column number {innerarr.GetLength(1)}");
+            //}
+
+            /////read elments of arry from user 
+            /////print elemnts of arry to user
+            /////write program to do that with protictive code and readable messages
+            //for (int x = 0; x < arr.Length; x++)
+            //{
+            //    int i = x / arr.GetLength(1); //current row 
+            //    int j = x % arr.GetLength(1); //current column 
+            //    int row, column;
+            //    Console.WriteLine($"enter array element arr[{i},{j}] diminssion 1");
+            //    while(!int.TryParse(Console.ReadLine(),out row))
+            //        Console.WriteLine($"wrong format, enter array element arr[{i},{j}] diminssion 1");
+
+            //    Console.WriteLine($"enter array element arr[{i},{j}] diminssion 2");
+            //    while (!int.TryParse(Console.ReadLine(), out column))
+            //        Console.WriteLine($"wrong format, enter array element arr[{i},{j}] diminssion 2");
+
+            //    arr[i, j] = new int[row,column];
+
+            //    for (int inx = 0; inx < arr[i, j].Length; inx++)
+            //    {
+            //        int ini = inx / arr[i, j].GetLength(1); //current row 
+            //        int inj = inx % arr[i, j].GetLength(1); //current column 
+
+            //        Console.WriteLine($"enter array element arr[{i}, {j}][{ini},{inj}]");
+            //        while (!int.TryParse(Console.ReadLine(), out arr[i, j][ini, inj]))
+            //            Console.WriteLine($"wrong format, enter array element arr[{i}, {j}][{ini},{inj}]");
+            //    }
+            //}
+            #endregion
+            #region Array Methods
+            //double[] numbers = { 8, 3, 4, 5, 6, 7, 9, 7, 1, 3 };
+            #region 1. class memeber method [static method]
+            //Array.Sort(numbers);
+            //Array.Reverse(numbers);
+            //Array.Clear(numbers);
+
+            //Point[] newarr = new Point[2];
+            //newarr[0] = new Point();
+            //newarr[1] = new Point();
+            //Array.Clear(newarr);
+            //foreach (Point item in newarr)
+            //{
+            //    Console.WriteLine(item.x);
+            //}
+
+            //Console.WriteLine(Array.IndexOf(numbers,3)); //first index
+            //Console.WriteLine(Array.LastIndexOf(numbers,3)); //last index
+
+            //var arr = Array.CreateInstance(typeof(int), 10);  // int[] arr = new int[];
+            #endregion
+            #region 2. object member method [non-static method]
+            //int[] newarr = new int[12];
+            //numbers.CopyTo(newarr, 2);
+            //numbers.SetValue(18, 5);
+            //Console.WriteLine(numbers[5]);
+            //foreach (int i in newarr)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //int[] destination = new int[numbers.Length];
+            ////var destination = Array.CreateInstance(numbers.GetType().GetElementType(), numbers.Length);
+            //numbers.CopyTo(destination, 0);
+            //foreach (var item in destination)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(numbers.GetType().GetElementType());
+            #endregion
+            //foreach (int item in numbers)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            ///Ex01: write a program find the longest distance between Two equal cells.
+            ///In this example.The distance is measured by the number Of cells- for example
+
+
+            #endregion
+            #endregion
+
+            #region Boxing vs UnBoxing [not recomended]
+
+            #endregion
+
+            #region Nullable types
+
+            #endregion
+
+            #region Null Propagation Operator
+
+            #endregion
+
+            #region Functions
+
+            #endregion
+
+            #region Exceptions Handling
+
+            #endregion
+
+            #region Enums
 
             #endregion
         }
