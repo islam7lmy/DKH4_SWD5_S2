@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections;
+using System.Text;
 using System.Threading.Channels;
 
 namespace Demo01
@@ -915,25 +916,172 @@ namespace Demo01
 
             ///Ex01: write a program find the longest distance between Two equal cells.
             ///In this example.The distance is measured by the number Of cells- for example
+            //int size;
+            //Console.WriteLine($"enter size of array");
+            //while (!int.TryParse(Console.ReadLine(), out size) || size < 1)
+            //    Console.WriteLine($"wrong format, enter size of array");
 
+            //int[] arr = new int[size];
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.WriteLine($"enter the {i + 1} element of array");
+            //    while (!int.TryParse(Console.ReadLine(), out arr[i]))
+            //        Console.WriteLine($"wrong format, enter the {i + 1} element of array");
+            //}
+            //int maxdist = 0;
+            //foreach (int item in arr)
+            //{
+            //    int dest = Array.LastIndexOf(arr, item) - Array.IndexOf(arr, item);
+            //    if (dest > maxdist)
+            //        maxdist = dest;
+            //}
+            //Console.WriteLine($"the longest distance between Two equal cells is {maxdist}");
 
             #endregion
             #endregion
 
             #region Boxing vs UnBoxing [not recomended]
+            //// Boxing   : Casting from ValueType to ReferenceType
+            //// UnBoxing : Casting from ReferenceType to ValueType
 
+            //int is object
+            //int x = 10;
+            //object obj = x; //boxing  => copy of data saved in x
+            //x = 20;
+            //Console.WriteLine(obj);
+
+            //Console.WriteLine(object);
+            //object[] data = new object[3];
+            //data[0] = 10; // boxing 
+            //data[1] = 2500.5; //boxing
+            //data[2] = "ali"; // not boxing 
+
+            //ArrayList list = new ArrayList();
+            //list.Add(10); // boxing
+            //list.Add(10.5); //boxing
+            //list.Add("10"); // not boxing
+
+            //List<int> ints = new List<int>();
+            //ints.Add(10);
+
+            //unboxing
+            //object obj = 10; //boxing
+            ////int x =(int) obj; // explicit casting
+            ////Console.WriteLine(x);
+            //double x = (double) obj;
+            //Console.WriteLine(x);
+
+
+            //object O1 = new object();
+            //O1 = "Ahmed";
+
+            //O1 = 5;    // int[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = 'A';  // char[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = 3.3;  // double[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = true; // bool[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = new DateTime();  // DateTime[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = new DateOnly(); // DateOnly[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = new TimeOnly(); // TimeOnly[ValueType] to object[ReferenceType] -> Boxing
             #endregion
 
             #region Nullable types
+            //int age = 0;
+            //age = null; //invalid
 
+            //int? age = null; //nullable integer : allow int value + null
+            //double? age2 = null; //nullable double : allow double value + null
+
+            //int x = 8; //allow int value only
+            //int? y = x; //allow int value + null
+            //y = null;
+
+            //if (y is not null)
+            //    x = (int)y;
+
+            //if (y.HasValue)
+            //    x = y.Value;
+
+            //x = y.HasValue ? y.Value : 0;
+
+            ////null Coalescing operator
+            //x = y ?? 0;
             #endregion
 
             #region Null Propagation Operator
+            //double x = default; // 0
+            //int[] arr = default; // null
 
+            //if (arr is not null)
+            //{
+            //    int length1 = arr.Length;
+            //}
+
+            //if (arr is not null)
+            //{
+            //    for (int i = 0; i < arr.Length; i++)
+            //    {
+
+            //    }
+            //}
+
+            //int? length = arr?.Length;
+            //int length2 = arr?.Length ?? 0;
+            //for (int i = 0; i < arr?.Length; i++)
+            //{
+
+            //}
+
+            //employee?.department?.deptname
+
+            //Point p1 = default;
+            //Console.WriteLine(p1?.x);
             #endregion
 
             #region Functions
+            #region prototype and calling
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    //for (int j = 0; j < 10; j++)
+            //    //{
+            //    //    Console.WriteLine("#");
+            //    //}
+            //    //Console.WriteLine("");
+            //    PrintLines();
+            //}
 
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    PrintLines(10,"$");
+            //}
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    PrintLines(20,"@");
+            //}
+
+            //PrintLines(); // default parms
+            //PrintLines(20, "$"); // passing parameters by position
+            ////PrintLines(, "$"); //not vilad
+            //PrintLines(pattern: @"/**\"); // passing parameters by name
+            //PrintLines(pattern: @"/**\" , number: 30); // passing parameters by name
+            #endregion
+            #region Value type
+            //int num1 = 9, num2 = 4;
+            //Console.WriteLine($"num1 = {num1} , num2 = {num2}");
+
+            ////Swap(num1, num2);//pass by value
+
+            //Swap(ref num1,ref num2);//pass by reference
+
+            //Console.WriteLine($"num1 = {num1} , num2 = {num2}");
+            #endregion
+            #region reference type
+            //int[] numarr = { 3, 5, 6 };
+            //Console.WriteLine(SumArray(numarr)); // pass by value
+            //Console.WriteLine(numarr[0]); // 10
+            //Console.WriteLine(SumArray(ref numarr)); // pass by reference
+            //Console.WriteLine(numarr[0]); // 15
+            #endregion
             #endregion
 
             #region Exceptions Handling
@@ -944,5 +1092,93 @@ namespace Demo01
 
             #endregion
         }
+
+        #region Functions
+        #region prototype and calling
+        //public static void PrintLines ()
+        //{
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        Console.Write("#");
+        //    }
+        //    Console.WriteLine("");
+        //}
+
+        //public static void PrintLines(int number,string pattern)
+        //{
+        //    for (int i = 0; i < number; i++)
+        //    {
+        //        Console.Write(pattern);
+        //    }
+        //    Console.WriteLine("");
+        //}
+
+        //public static void PrintLines(int number = 10, string pattern = "#")
+        //{
+        //    for (int i = 0; i < number; i++)
+        //    {
+        //        Console.Write(pattern);
+        //    }
+        //    Console.WriteLine("");
+        //}
+        #endregion
+
+        #region value type
+        //value type , pass by value
+        //public static void Swap(int x , int y)
+        //{
+        //    //Console.WriteLine($"x = {x} , Y = {y}");
+        //    int temp = x;
+        //    x = y;
+        //    y = temp;
+        //    //Console.WriteLine($"x = {x} , Y = {y}");
+        //}
+
+        //value type , pass by reference
+        //public static void Swap(ref int x,ref int y)
+        //{
+        //    //Console.WriteLine($"x = {x} , Y = {y}");
+        //    int temp = x;
+        //    x = y;
+        //    y = temp;
+        //    //Console.WriteLine($"x = {x} , Y = {y}");
+        //}
+        #endregion
+
+        #region reference type
+        //reference type , pass by value
+        //public static int SumArray(int[] Arr)
+        //{
+        //    int sum = 0;
+        //    Arr = new int[] { 1, 2, 3 };
+        //    foreach (int i in Arr)
+        //    {
+        //        sum += i;
+        //    }
+        //    //Arr[0] = 10;
+        //    return sum;
+        //}
+
+        ////reference type , pass by reference
+        //public static int SumArray(ref int[] Arr)
+        //{
+        //    int sum = 0;
+        //    Arr = new int[] { 1, 2, 3 };
+        //    //Arr[0] = 3;
+        //    foreach (int i in Arr)
+        //    {
+        //        sum += i;
+        //    }
+        //    //Arr[0] = 15;
+        //    return sum;
+        //}
+        #endregion
+
+        #region Passing By Out
+        #endregion
+
+        #region Params
+        #endregion
+        #endregion
     }
 }
