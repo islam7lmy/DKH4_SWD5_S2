@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Channels;
 
@@ -1082,14 +1083,60 @@ namespace Demo01
             //Console.WriteLine(SumArray(ref numarr)); // pass by reference
             //Console.WriteLine(numarr[0]); // 15
             #endregion
+            #region out paramaters
+            //int num1 = 10, num2 = 20 , x = 0 , y = 0;
+            //Point presult = SumMul(num1, num2);
+            //SumMul(num1, num2, out x , out y);
+
+            //SumMul(num1, num2, out _, out y);
+            //SumMul(num1, num2, out _, out _);
+            ////SumMul(num1, num2); // invaild
+            //Console.WriteLine($"sum = {x} , mul = {y}");
+
+            //SumMulByRef(num1, num2, ref x, ref y);
+
+            //SumMulByOut(num1,num2,out x, out y);
+            #endregion
+            #region Params
+            //int[] newarr = { 1, 2, 3, 4, 5, 6, 7 };
+            ////SumArry(newarr);
+            //Console.WriteLine(SumArry(1, 2, 3, 4, 5, 6, 7, 8, 9));
+            #endregion
             #endregion
 
             #region Exceptions Handling
-
+            //try
+            //{
+            //    DoSomeCode();
+            //}
+            ////catch(Exception ex)
+            ////{
+            ////    Console.WriteLine(ex.Message);
+            ////}
+            //finally
+            //{
+            //    // [Release | Deallocate | Delete | Close] UnMananged //Resources (DatabaseConnection, File)
+            //    Console.WriteLine("finally");
+            //}
+            //Console.WriteLine("test program is still running");
             #endregion
 
             #region Enums
+            //days day = days.sat;
+            //Point p1 = new Point();
+            //Console.WriteLine(p1.ToString());
+            //Console.WriteLine(day);
+            //Console.WriteLine(day.ToString());
+            //Console.WriteLine((int)day);
 
+            #region ex:01
+            Console.WriteLine((int) Gender.Male);
+            Console.WriteLine((int) Gender.M);
+            Console.WriteLine((int) Gender.m);
+            Console.WriteLine((int) Gender.Female);
+            Console.WriteLine((int) Gender.F);
+            Console.WriteLine((int) Gender.f);
+            #endregion
             #endregion
         }
 
@@ -1175,10 +1222,140 @@ namespace Demo01
         #endregion
 
         #region Passing By Out
+        //public static Point SumMul(int a, int b)
+        //{
+        //    Point p1 = new Point();
+
+        //    p1.x = a + b;
+        //    p1.y = a * b;
+
+        //    return p1;
+        //}
+
+        /// By Value     => Read Only
+        /// By Reference => Read  at First and Then Write (Parameter Passed By Ref, Must be initialized Before Passed)
+        /// By Out       => Write at First and Then Read (Parameter Passed By Out, Must be initialized Inside Function)
+        //public static void SumMulByOut(int a, int b, out int sum, out int mul)
+        //{
+        //    sum = a + b;
+        //    mul = a * b;
+        //}
+
+        //public static void SumMulByRef(int a, int b, ref int sum, ref int mul)
+        //{
+        //    //sum = a + b;
+        //    //mul = a * b;
+        //}
         #endregion
 
         #region Params
+        //public static int SumArry(int x,params int[] arr)
+        //{
+        //    int sum = 0;
+
+        //    foreach (int i in arr)
+        //    {
+        //        sum += i;
+        //    }
+
+        //    return sum;
+        //}
+
+        //public static int calcpall(int tax, int service, params int[] arr)
+        //{
+        //    int pall = 0;
+        //    foreach (var item in arr)
+        //    {
+        //        pall += item; 
+        //    }
+        //    return pall;
+        //}
         #endregion
         #endregion
+
+        #region Exceptions Handling
+
+        //static void DoSomeCode()
+        //{
+        //    int x, y, z;
+
+        //    Console.WriteLine("please enter the first number: ");
+        //    x = int.Parse(Console.ReadLine());
+
+        //    Console.WriteLine("please enter the second number: ");
+        //    y = int.Parse(Console.ReadLine());
+
+        //    z = x / y;
+
+        //    Console.WriteLine($"result is: {z}");
+
+        //    int[] arr = new int[3] { 1, 2, 3 };
+
+        //    int index = int.Parse(Console.ReadLine());
+
+        //    arr[index] = 99;
+        //}
+
+        //static void DoSomeProtectiveCode()
+        //{
+        //    try
+        //    {
+        //        int x, y, z;
+
+        //        do
+        //        {
+        //            Console.WriteLine("please enter the first number: ");
+        //        } while (!int.TryParse(Console.ReadLine(), out x));
+
+        //        do
+        //        {
+        //            Console.WriteLine("please enter the second number: ");
+        //        } while (!int.TryParse(Console.ReadLine(), out y) || y == 0);
+
+        //        z = x / y;
+
+        //        Console.WriteLine($"result is: {z}");
+
+        //        int[] arr = new int[3] { 1, 2, 3 };
+
+        //        int index;
+        //        do
+        //        {
+        //            Console.WriteLine("please enter the index to print: ");
+        //        } while (!int.TryParse(Console.ReadLine(), out index) || index >= arr.Length);
+
+        //        arr[index] = 99;
+        //    }
+        //    catch
+        //    {
+
+        //    }
+        //}
+
+        #endregion
+
     }
+
+    /// 1. struct
+    /// 2. enum
+    /// 3. class
+    /// 4. interface
+
+    #region Enums
+    //enum days
+    //{
+    //    sat = 0,
+    //    sun = 1,
+    //    mon = 2,
+    //    tus = 3,
+    //    wed = 4,
+    //    thr = 5,
+    //    fri = 6
+    //}
+
+    //enum Gender 
+    //{ 
+    //    Male = 1 , M  , m  ,Female = 1 , F  , f 
+    //}
+    #endregion
 }
