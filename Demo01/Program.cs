@@ -1130,13 +1130,66 @@ namespace Demo01
             //Console.WriteLine((int)day);
 
             #region ex:01
-            Console.WriteLine((int) Gender.Male);
-            Console.WriteLine((int) Gender.M);
-            Console.WriteLine((int) Gender.m);
-            Console.WriteLine((int) Gender.Female);
-            Console.WriteLine((int) Gender.F);
-            Console.WriteLine((int) Gender.f);
+            //Console.WriteLine((int) Gender.Male);
+            //Console.WriteLine((int) Gender.M);
+            //Console.WriteLine((int) Gender.m);
+            //Console.WriteLine((int) Gender.Female);
+            //Console.WriteLine((int) Gender.F);
+            //Console.WriteLine((int) Gender.f);
             #endregion
+
+            #region Ex : enums + params
+            //CalculateBill(14, 12, Menu.Pizaa, Menu.Juice, Menu.Salad);
+            #endregion
+
+            #region Ex : Permission
+            //Permission Myp = Permission.delete;
+            ////Console.WriteLine(Myp);
+
+
+            //Myp = Permission.execute;
+            //Console.WriteLine(Myp);
+
+            //Myp = (Permission) 3; //delete , execute
+            //Console.WriteLine(Myp.ToString());
+
+            //Myp = (Permission)15;
+            //Console.WriteLine(Myp.ToString());
+
+            ////// If You Want To Add Permission, Do OR Operation
+            //Myp |= Permission.read;
+            //Console.WriteLine(Myp.ToString());
+
+
+            ////// If You Want To Remove (Deny) Permission, Do Nor operation
+            //Myp &= ~Permission.read;
+            //Console.WriteLine(Myp.ToString());
+
+            //Myp &= ~Permission.write;
+            //Console.WriteLine(Myp.ToString());
+
+
+            //////If You Want To remove if exists or Add Permission if not exists, Do XOR Operation
+            //Myp ^= Permission.read;
+            //Console.WriteLine(Myp.ToString());
+
+
+            //Myp ^= Permission.write;
+            //Console.WriteLine(Myp.ToString());
+
+
+
+            ////// Check Read Permission is existed inside MyP
+            //if((Myp & Permission.read) == Permission.read)
+            //    Console.WriteLine("read permission is exists");
+            //else
+            //    Console.WriteLine("read permission is not exists");
+            #endregion
+
+            //function to add permission
+            //function to remove permission
+            //function to check if permission exists return true else return false
+
             #endregion
         }
 
@@ -1270,6 +1323,42 @@ namespace Demo01
         //    }
         //    return pall;
         //}
+
+        #region Ex : enums + params
+        /// order details :
+        /// pizza  : 120
+        /// Juice  : 60
+        /// ــــــــــــــــــ
+        /// total item : 180
+        /// tax : 100 * (14 / 100)
+        /// service : 100 * (12 / 100)
+        /// ــــــــــــــــــ
+        /// total order : total + tax + service
+        /// return total
+
+        //static double CalculateBill(int tax, int service, params Menu[] items)
+        //{
+        //    double total = 0;
+        //    Console.WriteLine("order details :");
+
+        //    foreach (Menu item in items)
+        //    {
+        //        Console.WriteLine($"{item.ToString()} : {(int)item}");
+        //        total += (int)item;
+        //    }
+
+        //    Console.WriteLine("ــــــــــــــــــ");
+        //    Console.WriteLine($"total items : {total}");
+        //    double taxinmony = total * ((double)tax / 100);
+        //    Console.WriteLine($"tax : {taxinmony}");
+        //    double serviceinmony = total * ((double)service / 100);
+        //    Console.WriteLine($"service : {serviceinmony}");
+        //    Console.WriteLine("ــــــــــــــــــ");
+        //    total += taxinmony + serviceinmony;
+        //    Console.WriteLine($"total order :{total}");
+        //    return total;
+        //}
+        #endregion
         #endregion
         #endregion
 
@@ -1353,9 +1442,46 @@ namespace Demo01
     //    fri = 6
     //}
 
-    //enum Gender 
-    //{ 
-    //    Male = 1 , M  , m  ,Female = 1 , F  , f 
+    //enum Gender : int
+    //{
+    //    Male = 1, M, m, Female = 1, F, f
     //}
+
+    //enum Branches : byte  // 0 => 255
+    //{ samartvally = 105, gamasa = 201, _6oct = 252, alex = 253, mansoura = 254, banha = 255 }
+
+    #region Ex : enums + params
+    //enum Menu
+    //{
+    //    Pizaa = 120,
+    //    Burger = 150,
+    //    Juice = 40,
+    //    Salad = 30,
+    //    Dessert = 60
+    //}
+    #endregion
+
+    #region Permissions
+    ////class user
+    ////{
+    ////    public int id;
+    ////    public Permission MyPermission; // 1 byte => 8 Permission
+    ////    public bool Write;  // 1 byte
+    ////    public bool Read;   // 1 byte
+    ////    public bool Excute; // 1 byte
+    ////    public bool Delte;  // 1 byte
+    ////    public bool select; // 1 byte
+    ////    public bool Excute1;// 1 byte
+    ////    public bool Delte1; // 1 byte
+    ////    public bool select1;// 1 byte
+    ////}
+
+    //[Flags] // Data annotatin (Decrator) => learn new behvior to calc
+    //enum Permission : byte
+    //{
+    //    delete = 1, execute = 2 , read = 4 , write = 8
+    //}
+
+    #endregion
     #endregion
 }
