@@ -1184,12 +1184,20 @@ namespace Demo01
             //    Console.WriteLine("read permission is exists");
             //else
             //    Console.WriteLine("read permission is not exists");
+
+
+            //Permission Myp = Permission.execute; // 0
+            //AddPermission(ref Myp ,Permission.write , Permission.read , Permission.delete);
+            //Console.WriteLine(Myp);
+
+            //RemovePermission(ref Myp, Permission.read , Permission.delete , Permission.execute);
+            //Console.WriteLine(Myp);
+
+
+            //Console.WriteLine(CheckPermission(Myp , Permission.write));
+            //Console.WriteLine(CheckPermission(Myp , Permission.read));
+
             #endregion
-
-            //function to add permission
-            //function to remove permission
-            //function to check if permission exists return true else return false
-
             #endregion
         }
 
@@ -1423,6 +1431,36 @@ namespace Demo01
 
         #endregion
 
+
+        #region Enums
+        ////function to add permission
+        //static void AddPermission(ref Permission CurrentPermission, params Permission[] PermissionToAdd)
+        //{
+        //    foreach (Permission Permission in PermissionToAdd)
+        //    {
+        //        CurrentPermission |= Permission;
+        //    }
+
+        //    Console.WriteLine(CurrentPermission);
+        //}
+
+        ////function to remove permission
+        //static void RemovePermission(ref Permission CurrentPermission, params Permission[] PermissionToRemove)
+        //{
+        //    foreach (Permission Permission in PermissionToRemove)
+        //    {
+        //        CurrentPermission &= ~Permission;
+        //    }
+
+        //    Console.WriteLine(CurrentPermission);
+        //}
+
+        ////function to check if permission exists return true else return false
+        //static bool CheckPermission(Permission CurrentPermission , Permission PermissionToCheck)
+        //{
+        //    return (CurrentPermission & PermissionToCheck) ==  PermissionToCheck;
+        //}
+        #endregion
     }
 
     /// 1. struct
@@ -1479,7 +1517,7 @@ namespace Demo01
     //[Flags] // Data annotatin (Decrator) => learn new behvior to calc
     //enum Permission : byte
     //{
-    //    delete = 1, execute = 2 , read = 4 , write = 8
+    //    delete = 1, execute = 2, read = 4, write = 8
     //}
 
     #endregion

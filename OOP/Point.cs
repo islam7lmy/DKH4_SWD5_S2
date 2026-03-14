@@ -15,9 +15,11 @@ namespace OOP
         /// 4. Properties
         /// 5. Events
         /// 6. Indexers
-    
-        public int X; 
-        public int Y;
+
+        //public int X;
+        //public int Y;
+        public int X { get; set; }
+        public int Y { get; set; }
 
         /// clr will always Generate Paramaterless Constructor
         //public Point()
@@ -29,8 +31,8 @@ namespace OOP
 
         public Point(int _x , int _y)
         {
-            X = _x;
-            Y = _y;
+            //X = _x;
+            //Y = _y;
         }
 
         public override string ToString()

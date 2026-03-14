@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +12,59 @@ namespace OOP
         long[] numbers;
         string[] names;
         int size;
-        public int Size { get { return size; } }
+        public int Size
+        {
+            get { return size; }
+            set
+            { 
+                //if (size == 0)
+                //{
+                //    size = value <= 0 ? 10 : value;
+                //}
+                //else 
+                if (value > size)
+                {
+                    long[] newnumbers = new long[value];
+                    string[] newnames = new string[value];
+
+                    numbers?.CopyTo(newnumbers, 0);
+                    names?.CopyTo(newnames, 0);
+
+                    numbers = newnumbers;
+                    names = newnames;
+
+                    size = value <= 0 ? 10 : value;
+                }
+                else if (value < size)
+                {
+                    int maxindexhasdata = Array.IndexOf(names, null);
+                    if (maxindexhasdata >= 0 && value >= maxindexhasdata)
+                    {
+                        long[] newnumbers = new long[value];
+                        string[] newnames = new string[value];
+
+                        for (int i = 0; i < maxindexhasdata; i++)
+                        {
+                            newnumbers[i] = numbers[i];
+                            newnames[i] = names[i];
+                        }
+
+                        numbers = newnumbers;
+                        names = newnames;
+                        size = value <= 0 ? 10 : value;
+                    }
+                } 
+            }
+        }
 
         public PhoneBook(int _size)
         {
-            size = _size;
-            numbers = new long[size];
-            names = new string[size];
+            Size = _size;
+            numbers = new long[Size];
+            names = new string[Size];
         }
 
+        //constructor chaining
         public PhoneBook() : this(10)
         {
             //size = 10;

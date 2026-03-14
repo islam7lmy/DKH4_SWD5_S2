@@ -27,7 +27,6 @@ namespace OOP
         // Property => Easy Use Like Attribute and at the Same Time Have The 3 Features Of Encapsulation
         #region 1. Full Property
         decimal salary;
-        
         public decimal Salary
         {
             get
