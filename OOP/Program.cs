@@ -1,4 +1,5 @@
 ﻿using Commen;
+using OOP.Inhertiance;
 
 namespace OOP
 {
@@ -31,7 +32,7 @@ namespace OOP
             #region EX01:Point
             //Point P1;
             ///// allocate 8 unitialized bytes in stack
-            
+
             //P1 = new Point();
             ///// new keyword just for Constructor Selection  that will initialize the attributes of struct
 
@@ -103,7 +104,7 @@ namespace OOP
             // 4. Assign The Reference (C1) To Allocated Object
             //Console.WriteLine(c1.Id);
 
-            Car c1 = new Car();
+            //Car c1 = new Car();
             //Console.WriteLine(c1);
             //Car c2 = new Car(20);
             //Console.WriteLine(c2);
@@ -111,6 +112,34 @@ namespace OOP
             //Console.WriteLine(c3);
             //Car c4 = new Car(40, "skoda", 160);
             //Console.WriteLine(c4);
+            #endregion
+            #region ex:Inhertance
+            //Parent p1 = new Parent(10);
+            //Parent p1 = new Parent(10, 20);
+            //Child c1 = new Child(10, 20, 30);
+            #endregion
+            #region Realtionship between classes
+            /// inhertance child is a perant  ,  dog is an anmial
+            /// Aggregation has as
+            /// 1. composition => room has walls
+            /// 2. association => room has chairs
+            #endregion
+            #region class vs struct
+            /// 1. referance type           |   1. value type
+            /// 2. support all oop pailers  |   2. support encabsulation & overriding
+            /// 3. all acces modifiers      |   3. privat , public , internal
+            /// 4. if you not create user defined constructor ,compiler wil create paremter less constructor do nothing   |   4. clr create paramter less constructor if you not define it to intial attributes with default values debend on its data type
+            #endregion
+            #region PolyMorphism
+            //Child c1 = new Child(10,20,30);
+            //Console.WriteLine(c1.product(10,20));
+
+            //Console.WriteLine(c1.sum());
+
+            ///binding
+            //Parent p1 = new Child(10, 20, 30);
+            //Console.WriteLine(p1.product(10,20)); // 2000 or 200 => parent method
+            //Console.WriteLine(p1.sum()); // 60 or 30  => child method
             #endregion
             #endregion
         }
