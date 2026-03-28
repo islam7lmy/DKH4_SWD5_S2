@@ -1,5 +1,6 @@
-﻿using Commen;
-using OOP.Inhertiance;
+﻿//using Commen;
+//using OOP.Inhertiance;
+using OOP.PolyMorphism_OverRiding;
 
 namespace OOP
 {
@@ -130,18 +131,166 @@ namespace OOP
             /// 3. all acces modifiers      |   3. privat , public , internal
             /// 4. if you not create user defined constructor ,compiler wil create paremter less constructor do nothing   |   4. clr create paramter less constructor if you not define it to intial attributes with default values debend on its data type
             #endregion
+            #endregion
+
             #region PolyMorphism
-            //Child c1 = new Child(10,20,30);
-            //Console.WriteLine(c1.product(10,20));
+            #region Function OverLoading
+            //Sum(10.0, 10);
+            #endregion
+            #region Function OverRiding
+            //TypeA typeA = new TypeA();
+            //TypeB B = new TypeB(1,2);
+            //B.MyFun01(); // with new keyword
+            //B.MyFun02(); // with override keyword
+            #endregion
+            #endregion
 
-            //Console.WriteLine(c1.sum());
-
+            #region Binding
+            #region What is Binding
             ///binding
-            //Parent p1 = new Child(10, 20, 30);
-            //Console.WriteLine(p1.product(10,20)); // 2000 or 200 => parent method
-            //Console.WriteLine(p1.sum()); // 60 or 30  => child method
+            /// 1. reference from parent type => object from child type
+            //Parent parent = new Child(1,2,3);
+            //TypeA A = new TypeB(10, 20);
+            //A.A = 10;
+            ////A.B = 20; //invalid
+
+            ///// 2.1 static Binding [Early Binding]
+            ////// Compiler Will Bind Function Call Based On Reference Type NOT Object Type
+            ////// at Compilation Time
+            //A.MyFun01(); ///will run parent code
+
+            ///// 2.2 dynamic Binding [Late Binding]
+            ////// CLR Will Bind Function Call Based On Object Type NOT Reference Type
+            ////// at Runtime.
+            //A.MyFun02(); //will run Child Code
+
+            #endregion
+            #region Not Binding
+            ///animal = dog; //binding
+            ///dog =(dog) animal; //not binding
+
+            //Child child = (Child)new Parent(10); //not binding
+            //TypeB B = (TypeB)new TypeA(10); //not binding
+            #endregion
+            #region Why Need Binding
+            //FullTimeEmployee fullTimeEmployee = new FullTimeEmployee();
+            //ProcessEmployee(fullTimeEmployee);
+
+            //PartTimeEmployee partTimeEmployee = new PartTimeEmployee();
+            //ProcessEmployee(partTimeEmployee);
+            #endregion
+            #region More Practise On Binding
+            //TypeA typeA = new TypeC(1, 2, 3); ///Reference form indirect parent
+            //typeA.A = 11;
+            ////typeA.B = 22; invalid
+            ////typeA.C = 33; invalid
+            //typeA.MyFun01(); // static binding method => I am Base [Parent]
+            //typeA.MyFun02(); // Dynamic Binded Method => TypeC: A = 11 , B = 2 , C = 3
+
+            //TypeB typeB = new TypeC(1, 2, 3); /// reference from dirict parent
+            //typeB.A = 11;
+            //typeB.B = 22;
+            ////typeB.C = 30; invalid  
+            //typeB.MyFun01();// static binding method => I am Base [Child]
+            //typeB.MyFun02();// Dynamic Binded Method => TypeC: A = 11 , B = 22 , C = 3
+
+            //TypeA typeA = new TypeD(1, 2, 3, 4);
+            //TypeB typeB = new TypeD(1, 2, 3, 4);
+            //TypeC typeC = new TypeD(1, 2, 3, 4);
+
+            //typeA.MyFun02(); //TypeC: A = 1, B = 2, C = 3
+            //typeB.MyFun02(); //TypeC: A = 1, B = 2, C = 3
+            //typeC.MyFun02(); //TypeC: A = 1, B = 2, C = 3
+
+
+            //TypeA typeA = new TypeE(1, 2, 3, 4, 5);
+            //TypeB typeB = new TypeE(1, 2, 3, 4, 5);
+            //TypeC typeC = new TypeE(1, 2, 3, 4, 5);
+            //TypeD typeD01 = new TypeD(1, 2, 3, 4);
+            //TypeD typeD = new TypeE(1, 2, 3, 4, 5);
+
+            //typeA.MyFun02(); //TypeC: A = 1, B = 2, C = 3
+            //typeB.MyFun02(); //TypeC: A = 1, B = 2, C = 3
+            //typeC.MyFun02(); //TypeC: A = 1, B = 2, C = 3
+            //typeD01.MyFun02(); //TypeD: A = 1 , B = 2 , C = 3 , D = 4 
+            //typeD.MyFun02(); //TypeE: A = 1 , B = 2 , C = 3 , D = 4 , E = 5
+
             #endregion
             #endregion
         }
+
+        #region PolyMorphism 1. Function overloading
+        //1.data type of paramaters
+        //2.count of paramaters
+        //3.order if not same data type of paramaters
+
+        public static int Sum (int x , int y)
+        {
+            return x + y;
+        }
+
+        //public static double Sum(int x, int y)  // not overloading
+        //{
+        //    return x + y;
+        //}
+
+        public static int Sum(int x, int y, int z)
+        {
+            return x + y + z;
+        }
+
+        public static int Sum(double x, double y)
+        {
+            return (int)(x + y);
+        }
+
+        public static int Sum(double x, int y)
+        {
+            return (int)(x + y);
+        }
+
+        public static int Sum(int x, double y)
+        {
+            return (int)(x + y);
+        }
+        #endregion
+
+        #region Why Need Binding
+        public static void ProcessEmployee(Employee emp)
+        {
+            if (emp is not null)
+            {
+                emp.MyFun01(); // static binded method => I am Employee
+                emp.MyFun02(); // dynamic binded method => debend on object you sent in parameter
+            }
+        }
+
+        //public static void ProcessEmployee(FullTimeEmployee emp)
+        //{
+        //    if(emp is not null)
+        //    {
+        //        emp.MyFun01();
+        //        emp.MyFun02();
+        //    }
+        //}
+
+        //public static void ProcessEmployee(PartTimeEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.MyFun01();
+        //        emp.MyFun02();
+        //    }
+        //}
+
+        //public static void ProcessEmployee(FreeLanceEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.MyFun01();
+        //        emp.MyFun02();
+        //    }
+        //}
+        #endregion
     }
 }
