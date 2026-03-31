@@ -1,5 +1,6 @@
 ﻿//using Commen;
 //using OOP.Inhertiance;
+using OOP.InterFaces;
 using OOP.PolyMorphism_OverRiding;
 
 namespace OOP
@@ -217,6 +218,98 @@ namespace OOP
 
             #endregion
             #endregion
+
+            #region InterFaces
+            #region Ex01
+            //MyTypeV2 myType = new MyTypeV2();
+            //myType.Salary = 1000;
+            //myType.MyFunc();
+            //myType.Age = 10;
+
+            //IMyType myType = new MyTypeV3();
+            //myType.Salary = 1000;
+            //myType.MyFunc();
+
+
+            //IMyType myType = new IMyType(); //not valid because interface is abstract type and you can not create object from it
+
+            //MyType myType = new MyType();
+            //myType.Salary = 1000;
+            //myType.MyFunc();
+            //myType.Print(); //invalid
+
+            //IMyType RefFromInterface = new MyType();
+            //RefFromInterface.Print(); //From InterFace or From Implmented Class
+            //RefFromInterface.Salary = 2000;
+            //RefFromInterface.MyFunc();
+            //RefFromInterface.MyFunc02(); //invalid
+
+
+            //IMyType RefFromInterFace2 = new MyTypeChild();
+            //RefFromInterFace2.Print(); //From InterFace or From Implmented Class OR From Child Class 
+            #endregion
+            #region Ex02
+            //SeriesByTwo seriesByTwo = new SeriesByTwo();
+            //Print10NumbersFromSeries(seriesByTwo);
+
+            //SeriesByThree seriesByThree = new SeriesByThree();
+            //Print10NumbersFromSeries(seriesByThree);
+
+            //SeriesByFour seriesByFour = new SeriesByFour();
+            //Print10NumbersFromSeries(seriesByFour);
+
+            //SeriesByFive seriesByFive = new SeriesByFive();
+            //Print10NumbersFromSeries(seriesByFive);
+            #endregion
+            #region Implment Interface Implicitly Vs Implment Interface Explicitly
+            //AirPlane airPlane = new AirPlane();
+            //airPlane.Left(); //Implicitly
+            //airPlane.Right(); //Implicitly
+            //airPlane.Forward(); //Explicitly can not access it because its explicitly implemented
+            //airPlane.Backward(); //Explicitly can not access it because its explicitly implemented
+            //airPlane.Speed(); //Explicitly can not access it because its explicitly implemented
+
+            //IMoveable AirPlane = new AirPlane();
+            //AirPlane.Left(); //Implicitly
+            //AirPlane.Right(); //Implicitly
+            //AirPlane.Forward(); //Explicitly
+            //AirPlane.Backward(); //Explicitly
+            //AirPlane.Speed = 100; //Explicitly
+
+            //IFlayable AirPlaneV2 = new AirPlane();
+            //AirPlaneV2.Left(); //Implicitly
+            //AirPlaneV2.Right(); //Implicitly
+            //AirPlaneV2.Forward(); //Explicitly
+            //AirPlaneV2.Backward(); //Explicitly
+            //AirPlane.Speed = 100; //Explicitly
+
+            #endregion
+            #endregion
+
+            #region Shallow Copy Vs Deep Copy
+
+            #endregion
+
+            #region Built-In Interface
+
+            #endregion
+
+            #region Abstract Class
+
+            #endregion
+
+
+            #region Operator Overloading
+
+            #endregion
+
+            #region User-Defined Casting Operator
+
+            #endregion
+
+            #region Static [Class, Attribute, Property, Constructor, Method] and Constants
+
+            #endregion
         }
 
         #region PolyMorphism 1. Function overloading
@@ -224,7 +317,7 @@ namespace OOP
         //2.count of paramaters
         //3.order if not same data type of paramaters
 
-        public static int Sum (int x , int y)
+        public static int Sum(int x, int y)
         {
             return x + y;
         }
@@ -289,6 +382,78 @@ namespace OOP
         //    {
         //        emp.MyFun01();
         //        emp.MyFun02();
+        //    }
+        //}
+        #endregion
+
+        #region InterFaces
+        //write static member method that print 10 numbers of series
+        ///Binding
+        public static void Print10NumbersFromSeries(ISeries series)
+        {
+            if (series is not null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Write(series.Current);
+                    series.GetNext();
+                }
+                series.Reset();
+                Console.WriteLine();
+            }
+        }
+
+        ///polyMorphism OverLoading
+        //public static void Print10NumbersFromSeries(SeriesByTwo series)
+        //{
+        //    if (series is not null)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            Console.Write(series.Current);
+        //            series.GetNext();
+        //        }
+        //        series.Reset();
+        //        Console.WriteLine();
+        //    }
+        //}
+        //public static void Print10NumbersFromSeries(SeriesByThree series)
+        //{
+        //    if (series is not null)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            Console.Write(series.Current);
+        //            series.GetNext();
+        //        }
+        //        series.Reset();
+        //        Console.WriteLine();
+        //    }
+        //}
+        //public static void Print10NumbersFromSeries(SeriesByFour series)
+        //{
+        //    if (series is not null)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            Console.Write(series.Current);
+        //            series.GetNext();
+        //        }
+        //        series.Reset();
+        //        Console.WriteLine();
+        //    }
+        //}
+        //public static void Print10NumbersFromSeries(SeriesByFive series)
+        //{
+        //    if (series is not null)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            Console.Write(series.Current);
+        //            series.GetNext();
+        //        }
+        //        series.Reset();
+        //        Console.WriteLine();
         //    }
         //}
         #endregion
