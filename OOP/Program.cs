@@ -282,16 +282,118 @@ namespace OOP
             //AirPlaneV2.Forward(); //Explicitly
             //AirPlaneV2.Backward(); //Explicitly
             //AirPlane.Speed = 100; //Explicitly
-
             #endregion
             #endregion
 
             #region Shallow Copy Vs Deep Copy
+            //int[] arr01 = { 1, 2, 3 };
+            //int[] arr02 = { 4, 5, 6 };
+
+            //Console.WriteLine(arr01.GetHashCode());
+            //Console.WriteLine(arr02.GetHashCode());
+
+            #region Shallow Copy
+            //arr01 = arr02;
+            ///// this object { 1, 2, 3 } became unreachable object
+            ///// this object { 4, 5, 6 } has 2 references (arr01 , arr02)
+            //Console.WriteLine("After Shallow copy");
+            //arr01[0] = 10;
+            //Console.WriteLine(arr02[0]); // 10
+
+            //Console.WriteLine(arr01.GetHashCode());
+            //Console.WriteLine(arr02.GetHashCode());
+            #endregion
+
+            #region Deep Copy
+            //int[] arr03 = (int[])arr01.Clone();
+            //Console.WriteLine("After Deep copy");
+            //arr03[0] = 99;
+            //Console.WriteLine(arr03[0]);
+            //Console.WriteLine(arr01[0]);
+
+            //Console.WriteLine(arr01.GetHashCode());
+            //Console.WriteLine(arr02.GetHashCode());
+            //Console.WriteLine(arr03.GetHashCode());
+            #endregion
+
+
 
             #endregion
 
             #region Built-In Interface
+            #region Iclonable
+            //InterFaces.Employee emp01 = new InterFaces.Employee();
+            //emp01.Id = 10;
+            //emp01.Name = "Ahmed";
+            //emp01.Salary = 4000;
 
+            //InterFaces.Employee emp02 = new InterFaces.Employee()
+            //{
+            //    Id = 20,
+            //    Name = "Ali",
+            //    Salary = 8000
+            //};
+
+            //Console.WriteLine($"Emp01: {emp01.GetHashCode()}");
+            //Console.WriteLine($"Emp02: {emp02.GetHashCode()}");
+            #region Shallow copy
+            //emp02 = emp01;//shallow copy => copy reference only
+            ///////// this object {Id = 10,Name = "ahmed",Salary = 4000} => has 2 references (emp01, emp02) [اسمين دلع]
+            ///////// this object {Id = 20,Name = "Ali",Salary = 8000} => became UnREachable
+            //Console.WriteLine("after Shallow Copy");
+            #endregion
+
+            #region DeepCopy
+            //emp02 = (InterFaces.Employee)emp01.Clone(); //Deep copy
+            //emp02 = new InterFaces.Employee(emp01); // deep copy with Copy Constructor
+            //Console.WriteLine("after Deep Copy");
+            #endregion
+
+            //emp02.Id = 99;
+
+            //Console.WriteLine($"Emp01: {emp01.GetHashCode()}");
+            //Console.WriteLine($"Emp02: {emp02.GetHashCode()}");
+
+            //Console.WriteLine($"Emp01: {emp01}");
+            //Console.WriteLine($"Emp02: {emp02}");
+            #endregion
+            #region Icomparable
+            //InterFaces.Employee[] employees =
+            //{
+            //    new InterFaces.Employee() {Id = 10, Name = "Ahmed" , Salary = 4000},
+            //    new InterFaces.Employee() {Id = 20, Name = "Ali" , Salary = 8000},
+            //    new InterFaces.Employee() {Id = 30, Name = "Amr" , Salary = 6000},
+            //    new InterFaces.Employee() {Id = 40, Name = "Omr" , Salary = 5000},
+            //};
+
+            //Array.Sort(employees);
+
+            //for (int i = 0; i < employees.Length; i++)
+            //{
+            //    for (int j = 0; j < employees.Length - 1 - i; j++)
+            //    {
+            //        if (employees[j].CompareTo(employees[j + 1]) > 0) ///(employees[j] > employees[j + 1])
+            //            Swap(ref employees[j], ref employees[j + 1]);
+            //    }
+            //}
+
+            //foreach (var emp in employees)
+            //{
+            //    Console.WriteLine(emp);
+            //}
+
+            ////int[] arr = { 9, 10, 1, 7, 2, 5 };
+            ////for (int i = 0; i < arr.Length; i++)
+            ////{
+            ////    for (int j = 0; j < arr.Length - 1 - i; j++)
+            ////    {
+            ////        if (arr[j] > arr[j + 1])
+            ////            Swap(ref arr[j],ref arr[j + 1]);
+            ////    }
+            ////}
+            ////foreach (int i in arr)
+            ////    Console.WriteLine(i);
+            #endregion
             #endregion
 
             #region Abstract Class
@@ -349,7 +451,7 @@ namespace OOP
         #endregion
 
         #region Why Need Binding
-        public static void ProcessEmployee(Employee emp)
+        public static void ProcessEmployee(PolyMorphism_OverRiding.Employee emp)
         {
             if (emp is not null)
             {
@@ -456,6 +558,22 @@ namespace OOP
         //        Console.WriteLine();
         //    }
         //}
+        #endregion
+
+        #region BubbleSort
+        static void Swap(ref int x ,ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+
+        static void Swap(ref InterFaces.Employee x, ref InterFaces.Employee y)
+        {
+            InterFaces.Employee temp = x;
+            x = y;
+            y = temp;
+        }
         #endregion
     }
 }
