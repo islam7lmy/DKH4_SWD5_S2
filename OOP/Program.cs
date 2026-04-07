@@ -1,6 +1,8 @@
 ﻿//using Commen;
 //using OOP.Inhertiance;
+using OOP.Abstraction;
 using OOP.InterFaces;
+using OOP.Operators_OverLoading;
 using OOP.PolyMorphism_OverRiding;
 
 namespace OOP
@@ -316,8 +318,6 @@ namespace OOP
             //Console.WriteLine(arr03.GetHashCode());
             #endregion
 
-
-
             #endregion
 
             #region Built-In Interface
@@ -382,26 +382,45 @@ namespace OOP
             //    Console.WriteLine(emp);
             //}
 
-            ////int[] arr = { 9, 10, 1, 7, 2, 5 };
-            ////for (int i = 0; i < arr.Length; i++)
-            ////{
-            ////    for (int j = 0; j < arr.Length - 1 - i; j++)
-            ////    {
-            ////        if (arr[j] > arr[j + 1])
-            ////            Swap(ref arr[j],ref arr[j + 1]);
-            ////    }
-            ////}
+            //int[] arr = { 9, 10, 1, 7, 2, 5 };
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    for (int j = 0; j < arr.Length - 1 - i; j++)
+            //    {
+            //        if (arr[j] > arr[j + 1])
+            //            Swap(ref arr[j], ref arr[j + 1]);
+            //    }
+            //}
             ////foreach (int i in arr)
             ////    Console.WriteLine(i);
             #endregion
             #endregion
 
             #region Abstract Class
+            //Shape shape = new Shape(); //not valid
+            //shape.Perimeter();
 
+            //Squere squere = new Squere(10);
+            //squere.Dim01 = 20;
+            //squere.Dim02 = 20;
+
+            //Shape shape = new Circle(10);
+            //Console.WriteLine(shape.Perimeter);
+            //Console.WriteLine(shape.CalcArea());
             #endregion
 
-
             #region Operator Overloading
+            Complex c1 = new Complex() { Real = 1 , Imag = 2};
+            Complex c2 = new Complex() { Real = 3 , Imag = 4};
+            Complex c3 = new Complex() { Real = 5 , Imag = 6};
+            //Complex c5 = default; //null
+            //Complex c4 = c1 + c2 + c3 + c5;
+
+            int x = 5;
+            int result = x++ + ++x;
+            Console.WriteLine(x); //
+            Console.WriteLine(result); //
+
 
             #endregion
 
