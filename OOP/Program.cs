@@ -4,6 +4,7 @@ using OOP.Abstraction;
 using OOP.InterFaces;
 using OOP.Operators_OverLoading;
 using OOP.PolyMorphism_OverRiding;
+using OOP.Static;
 
 namespace OOP
 {
@@ -410,27 +411,66 @@ namespace OOP
             #endregion
 
             #region Operator Overloading
-            Complex c1 = new Complex() { Real = 1 , Imag = 2};
-            Complex c2 = new Complex() { Real = 3 , Imag = 4};
-            Complex c3 = new Complex() { Real = 5 , Imag = 6};
-            //Complex c5 = default; //null
-            //Complex c4 = c1 + c2 + c3 + c5;
+            //Complex c1 = new Complex() { Real = 1 , Imag = 2};
+            //Complex c2 = new Complex() { Real = 3 , Imag = 4};
+            //Complex c3 = new Complex() { Real = 5 , Imag = 6};
+            ////Complex c5 = default; //null
+            ////Complex c4 = c1 + c2 + c3 + c5;
 
-            int x = 5;
-            int result = x++ + ++x;
-            Console.WriteLine(x); //
-            Console.WriteLine(result); //
-
-
+            //int x = 5;
+            //int result = x++ + ++x;
+            //Console.WriteLine(x); //
+            //Console.WriteLine(result); //
             #endregion
 
             #region User-Defined Casting Operator
+            //OOP.Operators_OverLoading.Employee employee = new Operators_OverLoading.Employee()
+            //{
+            //    Id = 102030,
+            //    FirstName = "Ahmed",
+            //    LastName = "Mohmed",
+            //    BirthDate = new DateOnly(2010,03,15),
+            //    Salary = 3_000,
+            //    Address = "13, el galaa street, front of Mansoura university gate",
+            //    City = "Mansoura",
+            //    Country = "Egypt"
+            //};
 
+            //EmployeeViewModel empview = (EmployeeViewModel) employee;
+            //EmployeeViewModel empview02 = EmployeeViewModel.FromEmployee(employee);
+            //EmployeeViewModel empview03 = employee.ToViewModel(employee);
+            //EmployeeViewModel empview04 = employee.ToEmployeeViewModel();
+
+            ////EmployeeViewModel empview =  employee;
+            ////Console.WriteLine(empview);
+            //Console.WriteLine(empview04);
+
+
+            //int x = 10;
+            //x += 2;
+            //x.add(2);
+            //x.sub(2);
+            //int y = 30;
+            //y.add(30);
             #endregion
 
             #region Static [Class, Attribute, Property, Constructor, Method] and Constants
-
+            //Utility.Hello();
+            //Utility.PI = 3.14;
+            //Console.WriteLine(Utility.CalcCircleArea(10));
             #endregion
+
+            #region Partial
+            OOP.Partiales.Employee emp = new Partiales.Employee();
+            emp.Id = 10;
+            emp.Name = "ahmed";
+            emp.Salary = 100000;
+            emp.Address = "el galaa";
+            emp.Age = 19;
+            emp.City = "Mansoura";
+            emp.Country = "Egypt";
+            #endregion
+
         }
 
         #region PolyMorphism 1. Function overloading
