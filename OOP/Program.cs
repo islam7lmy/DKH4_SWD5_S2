@@ -1,6 +1,7 @@
 ﻿//using Commen;
 //using OOP.Inhertiance;
 using OOP.Abstraction;
+using OOP.Generics;
 using OOP.InterFaces;
 using OOP.Operators_OverLoading;
 using OOP.PolyMorphism_OverRiding;
@@ -461,16 +462,88 @@ namespace OOP
             #endregion
 
             #region Partial
-            OOP.Partiales.Employee emp = new Partiales.Employee();
-            emp.Id = 10;
-            emp.Name = "ahmed";
-            emp.Salary = 100000;
-            emp.Address = "el galaa";
-            emp.Age = 19;
-            emp.City = "Mansoura";
-            emp.Country = "Egypt";
+            //OOP.Partiales.Employee emp = new Partiales.Employee();
+            //emp.Id = 10;
+            //emp.Name = "ahmed";
+            //emp.Salary = 100000;
+            //emp.Address = "el galaa";
+            //emp.Age = 19;
+            //emp.City = "Mansoura";
+            //emp.Country = "Egypt";
             #endregion
 
+
+            #region Generics
+            #region EX:01 Swap
+            //int num1 = 10, num2 = 20;
+            //object obj1 = num1 , obj2 = num2 ; //boxing
+            ////Helper.Swap(ref num1,ref num2);
+            //Helper.Swap(ref obj1,ref obj2);
+            //Console.WriteLine($"num1: {obj1} , num2: {obj2}");
+            //num1 =(int) obj1; //unsafe casting => unboxing
+            //num2 =(int) obj2; //unsafe casting => unboxing
+            //Console.WriteLine($"num1: {num1} , num2: {num2}");
+
+            //string str1 = "Ahmed", str2 = "Mohmed";
+            //Helper.Swap(ref str1, ref str2);
+            //Console.WriteLine($"str1: {str1} , str2: {str2}");
+
+            //double numx = 1.5, numy = 3.5;
+            //Helper.Swap<double>(ref numx, ref numy);
+            //Console.WriteLine($"numx: {numx} , numy: {numy}");
+
+            //Generics.Point p1 = new Generics.Point(10,20);
+            //Generics.Point p2 = new Generics.Point(30,40);
+            //Helper.Swap<Generics.Point>(ref p1,ref p2);
+            //Console.WriteLine($"p1:{p1} , p2:{p2}");
+            #endregion
+            #region EX:02 Search
+            //int[] numbers = { 5, 3, 2, 19, 4, 10, 1, 4 };
+            //int postion = Array.IndexOf(numbers, 10);
+            //int postion01 = Helper.SearchArray(numbers, 10);
+            //Console.WriteLine(postion);
+            //Console.WriteLine(postion01);
+
+            //Generics.Point[] points =
+            //{
+            //    new Generics.Point(0,0),
+            //    new Generics.Point(1,0),
+            //    new Generics.Point(2,0),
+            //    new Generics.Point(3,0),
+            //    new Generics.Point(4,0),
+            //    new Generics.Point(5,0),
+            //};
+
+            //Generics.Point p1 = new Generics.Point(1, 0);
+            //Generics.Point p2 = new Generics.Point(1, 0);
+            //Console.WriteLine(p1.GetHashCode());
+            //Console.WriteLine(p2.GetHashCode());
+
+            ////if(p1 == p2) //refernce == reference
+            //if (p1.Equals(p2)) //refernce == reference
+            //    Console.WriteLine(true);
+            //else
+            //    Console.WriteLine(false);
+
+
+            //string test = "ahmed";
+            //string test1 = "ahmed";
+            //Console.WriteLine(test.GetHashCode());
+            //Console.WriteLine(test1.GetHashCode());
+
+            //if(test.Equals(test1))
+            //    Console.WriteLine(true);
+            //else
+            //    Console.WriteLine(false);
+
+            //int postion = Array.IndexOf(points, new Generics.Point(3, 0));
+            //int postion = Helper.SearchArray(points, new Generics.Point(3, 0));
+            //Console.WriteLine(postion);
+            #endregion
+
+
+
+            #endregion
         }
 
         #region PolyMorphism 1. Function overloading
