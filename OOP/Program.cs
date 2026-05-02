@@ -472,7 +472,6 @@ namespace OOP
             //emp.Country = "Egypt";
             #endregion
 
-
             #region Generics
             #region EX:01 Swap
             //int num1 = 10, num2 = 20;
@@ -516,6 +515,18 @@ namespace OOP
 
             //Generics.Point p1 = new Generics.Point(1, 0);
             //Generics.Point p2 = new Generics.Point(1, 0);
+            //Generics.Point p3 = p2;
+
+            //Console.WriteLine(p1.Equals(p2));
+            //Console.WriteLine(p1 == p2);
+
+            //Console.WriteLine(p1.Equals(p3));
+            //Console.WriteLine(p1 == p3);
+
+            //Console.WriteLine(p2.Equals(p3));
+            //Console.WriteLine(p2 == p3); //p2 address in memory == p3 address in memory
+
+
             //Console.WriteLine(p1.GetHashCode());
             //Console.WriteLine(p2.GetHashCode());
 
@@ -540,7 +551,27 @@ namespace OOP
             //int postion = Helper.SearchArray(points, new Generics.Point(3, 0));
             //Console.WriteLine(postion);
             #endregion
+            #region EX:03 BubbleSort
+            //int[] arr = { 1, 2, 3, 4, 7, 5, 10, 9 };
+            //Helper.BubbleSort<int>(arr);
 
+            //Generics.Employee[] employees =
+            //{
+            //    new Generics.Employee(10,"Ahmed",10000),
+            //    new Generics.Employee(20,"Ali",4000),
+            //    new Generics.Employee(30,"Omar",5000),
+            //    new Generics.Employee(40,"Amr",8000),
+            //};
+
+            //Helper.BubbleSort<Generics.Employee>(employees);
+            //foreach (var item in employees)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            Generics.Employee emp01 = new Generics.Employee(10, "Ahmed", 10000);
+            Console.WriteLine(emp01.CompareTo(new Generics.Employee(30, "Omar", 5000)));
+            #endregion
 
 
             #endregion
