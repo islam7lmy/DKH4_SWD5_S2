@@ -22,7 +22,7 @@ namespace EFCore
 
             #region CRUD Operations [Create, Read, Update, Delete]
             ///unmanaged code
-            CompanyDBContext context = new CompanyDBContext();
+            //CompanyDBContext context = new CompanyDBContext();
             //try
             //{
             //    ///CRUD Operations [Create, Read, Update, Delete]
@@ -47,7 +47,7 @@ namespace EFCore
             /////Crud Operations [Create, Read, Update, Delete]
             /////code after this line will be executed after dispose context3
 
-            using CompanyDBContext dBContext = new CompanyDBContext();
+            //using CompanyDBContext dBContext = new CompanyDBContext();
 
             //Employee E01 = new Employee()
             //{
@@ -105,7 +105,78 @@ namespace EFCore
             //             .SingleOrDefault(); //top(2) or null => select top(2) * from Employees where Id = 1
             //Console.WriteLine($"Id: {emp.Id}, Name: {emp.Name}, Salary: {emp.Salary}, Age: {emp.Age}");
             #endregion
+            #region tracking vs notracking
+            //dBContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            //var result = (from emp in dBContext.Employees  //select * from Employees where Id = 1
+            //              where emp.Id == 1
+            //              select emp).AsNoTracking().FirstOrDefault();
+
+            //var result2 = (from emp in dBContext.Employees  //select * from Employees where Id = 1
+            //              where emp.Id == 1
+            //              select emp).AsTracking().FirstOrDefault();
+            //Console.WriteLine(dBContext.Entry(result).State);
+            //Console.WriteLine(dBContext.Entry(result2).State);
             #endregion
+            #endregion
+
+            #region Update
+            //var result = (from emp in dBContext.Employees
+            //              where emp.Id ==1
+            //              select emp).FirstOrDefault();
+            //if(result is not null)
+            //{
+            //    Console.WriteLine(dBContext.Entry(result).State); //unchanged
+            //    result.Age = null;
+            //    Console.WriteLine(dBContext.Entry(result).State); //modified
+            //    dBContext.Employees.Update(result);
+            //    Console.WriteLine(dBContext.Entry(result).State); //modified
+            //    dBContext.SaveChanges();
+            //    Console.WriteLine(dBContext.Entry(result).State); //unchanged
+            //}
+            #endregion
+
+            #region Delete
+            //var result = (from emp in dBContext.Employees  //select * from Employees where id = 1
+            //              where emp.Id ==1 
+            //              select emp).FirstOrDefault();
+            ////var result2 = dBContext.Employees.Where(e => e.Id == 1).FirstOrDefault(); //select * from employees
+            ////var result3 = dBContext.Employees.Find(1); //select * from employees where id = 1
+
+            //if (result is not null)
+            //{
+            //    Console.WriteLine(dBContext.Entry(result).State); //unchanged
+            //    dBContext.Employees.Remove(result);
+            //    Console.WriteLine(dBContext.Entry(result).State); //deleted
+            //    dBContext.SaveChanges();
+            //    Console.WriteLine(dBContext.Entry(result).State); //detached
+            //}
+            #endregion
+            #endregion
+
+            #region Mapping RealtionShip
+            //pk => fk
+            ///3. how to implment in code
+            ///     3.1 fk property [class name + pk name]
+            ///     3.2 Navigational property [class name]
+            ///     by default
+
+            /// 1. By Convension [navigational in two class create relationship]
+            /// 2. Data Annotations [if i have two relation ship between two classes]
+            /// 3. Fluent APIs [if you need to configuer relationship (on Delete cascade)]
+
+            ///example: Employee => Department (One to Many Or One to One)
+            ///1.by convintion => two navigational property
+            ///                => two navigational property and forign key
+            ///                => one navigational in (Department) property and forign key
+            ///2.Data Annotations => have two relation or more between class
+            ///                   => Four navigational property
+            ///                   => use [InverseProperty("" or nameof() )]
+            ///                   => use [ForeignKey()] 
+            ///                         => when don't implement forign key and need to rename it write on navigational property
+            ///                         => when implment forign key but it's name not compatible with by convintion name (DepartmentDeptId && DepartId) it write on forign key property and refer to navigational property
+            ///3. Fluent APIs => most use and has full control on relation
+
+            /// example : student=> course (many to many)
             #endregion
 
         }
