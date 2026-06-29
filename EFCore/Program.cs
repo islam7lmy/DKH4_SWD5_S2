@@ -179,6 +179,115 @@ namespace EFCore
             /// example : student=> course (many to many)
             #endregion
 
+            #region Mapping Inheritance
+            using InheritanceDbContext dbContext = new InheritanceDbContext();
+            Person employee = new Person
+            {
+                Name = "Person Emp",
+                Age = 30,
+            };
+
+            FullTime ftEmployee = new FullTime
+            {
+                Name = "FullTime Emp",
+                Age = 30,
+                Salary = 5000,
+                HiringDate = DateOnly.FromDateTime(DateTime.Now)
+            };
+
+            PartTime ptEmployee = new PartTime
+            {
+                Name = "PartTime Emp",
+                Age = 25,
+                HourRate = 50,
+                HoursCount = 120
+            };
+
+            #region TPH
+            #region Two DbSet
+            //dbContext.FullTimePersons.Add(ftEmployee);
+            //dbContext.PartTimePersons.Add(ptEmployee);
+            //dbContext.SaveChanges();
+
+            //var fulltimeemployees = from fulltime in dbContext.FullTimePersons
+            //                        select fulltime;
+
+            //foreach (var item in fulltimeemployees)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, salary: {item.Salary}");
+            //}
+            #endregion
+            #region One DbSet
+            //dbContext.Persons.Add(ftEmployee);
+            //dbContext.Persons.Add(ptEmployee);
+            //dbContext.SaveChanges();
+
+            //var persons = from person in dbContext.Persons
+            //              select person;
+
+            //Console.WriteLine("*****************Persons******************");
+            //foreach (var item in persons)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, Type: {item.GetType().Name}");
+            //}
+
+            //var fulltimeemployees = from fulltime in dbContext.Persons.OfType<FullTime>()
+            //                        select fulltime;
+
+            //Console.WriteLine("*****************fulltime******************");
+            //foreach (var item in fulltimeemployees)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, Salary: {item.Salary}");
+            //}
+
+
+            //var parttimeemployees = from parttime in dbContext.Persons.OfType<PartTime>()
+            //                        select parttime;
+            //Console.WriteLine("*****************parttime******************");
+            //foreach (var item in parttimeemployees)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, Hour rate: {item.HourRate}");
+            //}
+
+            #endregion
+            #endregion
+
+            #region TPT
+            //dbContext.Persons.Add(employee);
+            //dbContext.Persons.Add(ftEmployee);
+            //dbContext.Persons.Add(ptEmployee);
+            //dbContext.SaveChanges();
+
+            //var persons = from person in dbContext.Persons
+            //              select person;
+
+            //Console.WriteLine("*****************Persons******************");
+            //foreach (var item in persons)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, Type: {item.GetType().Name}");
+            //}
+
+            //var fulltimeemployees = from fulltime in dbContext.FullTimePersons
+            //                        select fulltime;
+
+            //Console.WriteLine("*****************fulltime******************");
+            //foreach (var item in fulltimeemployees)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, Salary: {item.Salary}");
+            //}
+
+
+            //var parttimeemployees = from parttime in dbContext.PartTimePersons
+            //                        select parttime;
+            //Console.WriteLine("*****************parttime******************");
+            //foreach (var item in parttimeemployees)
+            //{
+            //    Console.WriteLine($"FullTime Employee:{item.Name}, Hour rate: {item.HourRate}");
+            //}
+            #endregion
+
+            #endregion
+
         }
     }
 }
